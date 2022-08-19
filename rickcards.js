@@ -1,4 +1,4 @@
-const apiUrl = 'https://rickandmortyapi.com/api/character/?name=rick';
+export const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
 fetchRicks(apiUrl);
 async function fetchRicks(apiUrl) {
@@ -17,12 +17,11 @@ function createRickList(ricks) {
   listElement.className = '';
   document.body.append(listElement);
 
-  ricks.forEach(({ image, name, status }) => {
+  rick.forEach(({ image, name }) => {
     const item = document.createElement('li');
     item.innerHTML = `
     <h2>${name}</h2>
-    <img src=${image}>
-    <p>Status = ${status}</p>
+    <img src=${image}
     `;
     listElement.append(item);
   });
