@@ -22,12 +22,13 @@ function createRickList(ricks) {
   document.body.append(listElement);
 
   ricks.forEach(({ image, name, status }) => {
-    const item = document.createElement('li class="Card" "Card__Rick"');
+    const item = document.createElement('li');
     item.innerHTML = `
     <h2>${name}</h2>
     <img src=${image}>
     <p>Status = ${status}</p>
     `;
+    item.className = 'Card Card__Rick';
     listElement.append(item);
   });
 }

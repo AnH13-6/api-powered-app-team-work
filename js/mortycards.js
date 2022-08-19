@@ -1,4 +1,6 @@
-const apiUrls = ["https://rickandmortyapi.com/api/character/?name=rick", "https://rickandmortyapi.com/api/character/?page=2&name=rick", "https://rickandmortyapi.com/api/character/?page=3&name=rick", "https://rickandmortyapi.com/api/character/?page=4&name=rick", "https://rickandmortyapi.com/api/character/?page=5&name=rick", "https://rickandmortyapi.com/api/character/?page=6&name=rick"];
+export default function mortysFunction () {
+
+const apiUrls = ["https://rickandmortyapi.com/api/character/?name=morty", "https://rickandmortyapi.com/api/character/?page=2&name=morty ", "https://rickandmortyapi.com/api/character/?page=3&name=morty ", "https://rickandmortyapi.com/api/character/?page=4&name=morty "];
 
 apiUrls.forEach(apiUrl => {
 fetchMortys(apiUrl);
@@ -14,18 +16,21 @@ async function fetchMortys(apiUrl) {
 }
 })
 
-function createMortyList(ricks) {
+function createMortyList(mortys) {
   const listElement = document.createElement('ul');
   listElement.className = '';
   document.body.append(listElement);
 
-  ricks.forEach(({ image, name, status }) => {
-    const item = document.createElement('li class="Card" "Card__Morty"');
+  mortys.forEach(({ image, name, status }) => {
+    const item = document.createElement('li');
     item.innerHTML = `
     <h2>${name}</h2>
     <img src=${image}>
     <p>Status = ${status}</p>
     `;
+    item.className = "Card Card__Morty";
     listElement.append(item);
   });
 }
+}
+
